@@ -1,0 +1,48 @@
+body {
+	background-color: #FFE8E8;
+}
+
+.topBar {
+	background-color: #9933FF;
+}
+
+.fancyDiv {
+	position: relative;
+	float: left;
+	display: inline-block;
+	text-align: center;
+	height: 144px;
+	width: 194px;
+	border: 3px solid black;
+	margin: 5px 5px 5px 5px;
+	padding-top: 50px;
+	background-color: #66CCFF;
+	border-radius: 25%;
+	-moz-border-radius: 25%;
+	-webkit-border-radius: 25%;
+}
+
+.yellowDiv {
+	background-color: #FFFF99;
+	float: right;
+}
+
+.littleDiv {
+	height: 50px;
+	width: 50px;
+	padding-top: 0px;
+	background-color: red;
+}
+
+p {
+	font-weight: bold;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+p:hover {
+	color: red;
+}
+
+div.yellowDiv:hover {
+	background-color: blue;
+}
