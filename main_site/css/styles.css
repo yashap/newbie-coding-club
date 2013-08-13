@@ -1,34 +1,47 @@
-p {
-	border: 1px solid red;
-	display: inline-block;
-	margin: 0;
-	background-color: yellow;
-	position: relative;
+body {
+	font-family: Verdana, Geneva, sans-serif;
 }
 
-div {
+nav {
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	background: #68554a;
+}
+
+.mainContainer {
+	position: relative;
+	top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	width: 850px;
 	border: 1px solid blue;
-	height: 500px;
+}
+
+.catWindow {
+	display: block;
+	height: 400px;
+	width: 400px;
+	background: url(../images/cat_stack.png) no-repeat left top;
+	text-indent: -9999px;
+}
+
+.catWindow:hover, .catWindow:focus {
+	background-position: 0 -400px;
+}
+
+nav ul {
 	position: relative;
-	top: 20px;
-	left: 50px;
-	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 60px;
+	width: 850px;
+	top: 30px;
 }
 
-.abs {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-}
-
-.front {
-	z-index: 2;
-}
-
-.back {
-	z-index: 1;
-}
-
-.front:hover {
-	z-index: -1;
+nav ul li {
+	display: inline;
+	color: white;
+	padding-right: 20px;
 }
