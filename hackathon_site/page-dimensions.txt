@@ -1,0 +1,4 @@
+Page width: 940px
+Grey header: 50px
+Blue header: 100px
+Grey footer: 218px
