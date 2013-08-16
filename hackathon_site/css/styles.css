@@ -32,7 +32,7 @@ section {
 footer {
 	position: absolute;
 	top: 720px;
-	height: 218px;
+	height: 260px;
 	width: 100%;
 	background: #3d3d3d url('../images/grey-footer.png');
 	clear: all;
@@ -321,6 +321,15 @@ div .top-1:hover {
 .bottom-1 p {
 	font-size: 15px;
 	padding: 0 0 0 15px;
+}
+
+.sub-footer {
+	position: absolute;
+	top: 210px;
+	height: 33px;
+	width: 940px;
+	background: #3d3d3d url('../images/sub-footer.png') repeat bottom;
+	clear: all;
 }
 
 /*
