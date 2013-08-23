@@ -2,11 +2,13 @@ body {
 	font-family: Verdana, Geneva, sans-serif;
 }
 
-nav {
+.topBar {
 	position: fixed;
-	height: 60px;
+	height: 35px;
 	width: 100%;
 	background: #68554a;
+	z-index: 10;
+	box-shadow: 1px 0 1px black;
 }
 
 .mainContainer {
@@ -31,17 +33,27 @@ nav {
 	background-position: 0 -400px;
 }
 
-nav ul {
+.topBar nav {
 	position: relative;
-	margin-left: auto;
-	margin-right: auto;
-	height: 60px;
+	margin: 0 auto 0 auto;
+	height: 35px;
 	width: 850px;
-	top: 30px;
+}
+
+nav ul {
+	float: right;
 }
 
 nav ul li {
 	display: inline;
 	color: white;
 	padding-right: 20px;
+}
+
+.logo {
+	float: left;
+	font-family: 'Press Start 2P', cursive;
+	color: white;
+	text-shadow: 2px 2px 2px black;
+	margin: 10px 0 0 0;
 }
