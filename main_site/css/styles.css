@@ -1,34 +1,48 @@
+html {
+	font-size: 16px;
+}
+
 body {
-	font-family: Verdana, Geneva, sans-serif;
+	font-family: 'Droid Sans', sans-serif;
+	font-size: 62.5%;
+	background: url(../images/bright_squares.png) repeat;
 }
 
 .topBar {
 	position: fixed;
 	height: 35px;
 	width: 100%;
-	background-image: linear-gradient(bottom, #BC85C7 0%, #2D1438 100%);
-	background-image: -o-linear-gradient(bottom, #BC85C7 0%, #2D1438 100%);
-	background-image: -moz-linear-gradient(bottom, #BC85C7 0%, #2D1438 100%);
-	background-image: -webkit-linear-gradient(bottom, #BC85C7 0%, #2D1438 100%);
-	background-image: -ms-linear-gradient(bottom, #BC85C7 0%, #2D1438 100%);
+	background-image: linear-gradient(bottom, rgba(83,70,94,0.95) 0%, rgba(193,167,217,0.95) 100%);
+	background-image: -o-linear-gradient(bottom, rgba(83,70,94,0.95) 0%, rgba(193,167,217,0.95) 100%);
+	background-image: -moz-linear-gradient(bottom, rgba(83,70,94,0.95) 0%, rgba(193,167,217,0.95) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgba(83,70,94,0.95) 0%, rgba(193,167,217,0.95) 100%);
+	background-image: -ms-linear-gradient(bottom, rgba(83,70,94,0.95) 0%, rgba(193,167,217,0.95) 100%);
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
 		left top,
-		color-stop(0, #BC85C7),
-		color-stop(1, #2D1438)
+		color-stop(0, rgba(83,70,94,0.95)),
+		color-stop(1, rgba(193,167,217,0.95))
 	);
 	z-index: 10;
-	box-shadow: 0 2px 2px rgba(39, 0, 37, 0.6200);
 }
 
 .mainContainer {
+	padding: 60px 0 20px 0;
+}
+
+.mainWidth {
 	position: relative;
 	margin: 0 auto 0 auto;
-	top: 35px;
-	height: auto;
-	width: 850px;
-	border: 1px solid blue;
+	width: 940px;	
+}
+
+.bottomBar {
+	position: realtive;
+	height: 150px;
+	padding: 20px 0 20px 0;
+	width: 100%;
+	background: url(../images/tweed.png) repeat;
 }
 
 .catWindow {
@@ -44,30 +58,44 @@ body {
 }
 
 .topBar nav {
-	position: relative;
-	margin: 0 auto 0 auto;
 	height: 35px;
-	width: 850px;
 }
 
 nav ul {
 	float: right;
+	color: white;
+	font-size: 1.6em;
+	padding-top: 9px;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
 nav ul li {
 	display: inline;
-	color: white;
 	padding-right: 20px;
+	text-shadow: 1px 1px 4px black;
+}
+
+nav ul li:last-child {
+	padding-right: 0;
 }
 
 .logo {
 	float: left;
 	font-family: 'Press Start 2P', cursive;
 	color: white;
-	text-shadow: 2px 2px 2px black;
+	text-shadow: 1px 1px 4px black;
 	margin: 10px 0 0 0;
+	font-size: 1.5em;
 }
 
-.logo span {
-	color: #ff8246;
+.topBar span {
+	color: rgb(255, 108, 40);
+}
+
+.mainContainer h1 {
+	font-family: 'Press Start 2P', cursive;
+	color: rgb(255, 108, 40);
+	text-shadow: 2px 2px 2px rgba(42, 34, 49, 0.9);
+	font-size: 8.5em;
 }
