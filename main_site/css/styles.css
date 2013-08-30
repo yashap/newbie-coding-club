@@ -112,7 +112,22 @@ p {
 	text-shadow: 2px 2px 2px rgba(42, 34, 49, 0.9);
 	font-size: 8.5em;
 	margin: 0 0 20px 30px;
-	background-color: ;
+	z-index: 5;
+}
+
+.titleBG {
+	position: absolute;
+	top: 125px;
+	width: 500px;
+	height: 35px;
+	-webkit-border-radius: 15% 85% 85% 15% / 50% 50% 50% 50%;
+	-moz-border-radius: 15% 85% 85% 15% / 50% 50% 50% 50%;
+	border-radius: 15% 85% 85% 15% / 50% 50% 50% 50%;
+	background-color: rgba(100, 82, 121, 0.5);
+	z-index: -10;
+	-webkit-box-shadow: inset 0 0 15px white;
+	-moz-box-shadow: inset 0 0 15px white;
+	box-shadow: inset 0 0 15px white;
 }
 
 .memberPhotos {
@@ -123,7 +138,6 @@ p {
 .polaroids {
 	height: 240px;
 	width: 210px;
-	text-indent: -9999px;
 	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.9);
 	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.9);
 	box-shadow: 1px 1px 3px rgba(0,0,0,0.9);
