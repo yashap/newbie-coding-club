@@ -38,7 +38,7 @@ body {
 }
 
 .bottomBar {
-	position: realtive;
+	position: relative;
 	height: 150px;
 	padding: 20px 0 20px 0;
 	width: 100%;
@@ -60,8 +60,7 @@ body {
 .topBar nav {
 	height: 35px;
 }
-
-nav ul {
+.topBar ul {
 	float: right;
 	color: white;
 	font-size: 1.6em;
@@ -70,13 +69,13 @@ nav ul {
 	letter-spacing: 2px;
 }
 
-nav ul li {
+.topBar li {
 	display: inline;
 	padding-right: 20px;
 	text-shadow: 1px 1px 4px black;
 }
 
-nav ul li:last-child {
+.topBar li:last-child {
 	padding-right: 0;
 }
 
@@ -98,4 +97,49 @@ nav ul li:last-child {
 	color: rgb(255, 108, 40);
 	text-shadow: 2px 2px 2px rgba(42, 34, 49, 0.9);
 	font-size: 8.5em;
+}
+
+.memberPhotos {
+	height: 600px;
+}
+
+.polaroids {
+	height: 240px;
+	width: 210px;
+	text-indent: -9999px;
+	-webkit-box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	-moz-box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	position: absolute;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.yashaPhoto {
+	background: url(../images/yasha.png) no-repeat left top;
+	-webkit-transform: scale(0.8) rotate(-10deg); 
+	-moz-transform: scale(0.8) rotate(-10deg); 
+	-o-transform: scale(0.8) rotate(-10deg); 
+	transform: scale(0.8) rotate(-10deg);
+	top: 15px;
+	left: 5px;
+}
+
+.marcPhoto {
+	background: url(../images/marc.png) no-repeat left top;
+	-webkit-transform: scale(0.9) rotate(5deg); 
+	-moz-transform: scale(0.9) rotate(5deg); 
+	-o-transform: scale(0.9) rotate(5deg); 
+	transform: scale(0.9) rotate(5deg);
+	top: 25px;
+	left: 280px;
+}
+
+.polaroids:hover {
+	-webkit-transform: scale(1) rotate(0deg); 
+	-moz-transform: scale(1) rotate(0deg); 
+	-o-transform: scale(1) rotate(0deg); 
+	transform: scale(1) rotate(0deg);
 }
