@@ -1,0 +1,38 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+	background-image: linear-gradient(bottom, rgba(47,40,56,0.95) 0%, rgba(101,80,125,0.95) 100%);
+	background-image: -o-linear-gradient(bottom, rgba(47,40,56,0.95) 0%, rgba(101,80,125,0.95) 100%);
+	background-image: -moz-linear-gradient(bottom, rgba(47,40,56,0.95) 0%, rgba(101,80,125,0.95) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgba(47,40,56,0.95) 0%, rgba(101,80,125,0.95) 100%);
+	background-image: -ms-linear-gradient(bottom, rgba(47,40,56,0.95) 0%, rgba(101,80,125,0.95) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgba(47,40,56,0.95)),
+		color-stop(1, rgba(101,80,125,0.95))
+	);
+}
+
+.navbar .navbar-brand {
+	font-family: 'Press Start 2P', cursive;
+	color: white;
+}
+
+.navbar span {
+	color: rgb(255, 108, 40);
+}
+
+h1, h2 {
+	font-family: 'Press Start 2P', cursive;
+}
+
+.navbar-nav {
+	float: right;
+}
