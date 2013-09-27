@@ -33,10 +33,55 @@ body {
 	float: right;
 }
 
+.jumbotron {
+	background-color: rgb(192, 175, 214);
+}
+
+.jumbotron .container .form-group {
+	display: inline-block;
+	width: 100%;
+}
+
+.btn-orange {
+  background-color: rgb(255, 108, 40);
+  border-color: rgb(202, 84, 31)
+}
+
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.open .dropdown-toggle.btn-orange {
+  color: #ffffff;
+  background-color: rgb(202, 84, 31);
+}
+
+.jumbotron .container h1 {
+	text-shadow: 0 0 10px rgba(253, 66, 67, 0.5);
+}
+
+
+
+/* Extra small devices (phones, up to 480px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
 .jumbotron .container h1 {
 	font-size: 2em;
 }
+}
 
-.jumbotron {
-	background-color: rgb(192, 175, 214);
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+.jumbotron .container h1 {
+	font-size: 2.5em;
+}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+.jumbotron .container h1 {
+	font-size: 3em;
+}
 }
