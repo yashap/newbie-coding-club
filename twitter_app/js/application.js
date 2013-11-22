@@ -24,10 +24,3 @@ $(function() {
 		});
 	});
 });
-
-/*
-$(function() {
-	$('.jumbotron').on('click', 'button', function() {
-		$.getJSON('js/myTweets.json', '', function(myTweets) {
-	})
-*/
