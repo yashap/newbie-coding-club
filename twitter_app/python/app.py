@@ -4,6 +4,7 @@ import urlparse
 from TwitterSearch import *
 
 def twit_search(keywords):
+  print "Testing123"
   try:
     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
     tso.setKeywords(keywords) # let's define all words we would like to have a look for
@@ -29,15 +30,16 @@ def twit_search(keywords):
 
   except TwitterSearchException as e: # take care of all those ugly errors if there are some
     print(e)
+    return []
 
 def to_html(tweets):
   result = []
   for tweet in tweets:
-    result.append("<p class='tweet'>"+tweet["tweet"]+"</p>"+"<h1 class='screen_name'>"+tweet["screen_name"]+"</h1>")
+    result.append("<p class='tweet'>"+tweet["tweet"]+"</p>"+"<h3 class='screen_name'>"+tweet["screen_name"]+"</h3>")
   return result
 
-print twit_search(['obama'])
-print to_html(twit_search(['obama']))
+# print twit_search(['obama'])
+# print to_html(twit_search(['obama']))
 
 
 HOST_NAME = '0.0.0.0' # !!!REMEMBER TO CHANGE THIS!!!
@@ -54,11 +56,11 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     s.send_header("Content-type", "text/html")
     s.end_headers()
     s.wfile.write("<html><head><title>Title goes here.</title></head>")
-    s.wfile.write("<body><p>This is a test.</p>")
+    s.wfile.write("<body>")
     # If someone went to "http://something.somewhere.net/foo/bar/",
     # then s.path equals "/foo/bar/".
     keywords = urlparse.parse_qs(urlparse.urlparse(s.path).query)['keywords']
-    s.wfile.write("<p>You accessed keywords: %s</p>" % twit_search(keywords))
+    s.wfile.write("\n".join(to_html(twit_search(keywords))))
     s.wfile.write("</body></html>")
 
 if __name__ == '__main__':
