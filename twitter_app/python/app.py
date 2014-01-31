@@ -4,12 +4,11 @@ import urlparse
 from TwitterSearch import *
 
 def twit_search(keywords):
-  print "Testing123" + ",".join(keywords)
   try:
     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
     tso.setKeywords(keywords) # let's define all words we would like to have a look for
     tso.setLanguage('en') # we want to see English tweets only
-    tso.setCount(1) # please dear Mr Twitter, only give us 1 result per page
+    tso.setCount(7) # please dear Mr Twitter, only give us 1 result per page
     tso.setIncludeEntities(False) # and don't give us all those entity information
 
     # it's about time to create a TwitterSearch object with our secret tokens
@@ -25,8 +24,8 @@ def twit_search(keywords):
     tweets = []
     for tweet in ts.searchTweetsIterable(tso):
       tweets.append({"screen_name": tweet['user']['screen_name'], "tweet": tweet['text']})
-      print("hi")
-      break
+      if len(tweets) >= 5:
+        break
 
     return tweets
 
@@ -40,32 +39,35 @@ def to_html(tweets):
     result.append("<p class='tweet'>"+tweet["tweet"]+"</p>"+"<h3 class='screen_name'>"+tweet["screen_name"]+"</h3>")
   return result
 
-# print twit_search(['obama'])
-# print to_html(twit_search(['obama']))
-
 
 HOST_NAME = '0.0.0.0' # !!!REMEMBER TO CHANGE THIS!!!
 PORT_NUMBER = 8000 # Maybe set this to 9000.
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
-  # def do_HEAD(s):
-  #   s.send_response(200)
-  #   s.send_header("Content-type", "text/html")
-  #   s.end_headers()
-  def do_GET(s):
-    """Respond to a GET request."""
-    s.send_response(200)
-    s.send_header("Content-type", "text/html")
-    s.end_headers()
-    s.wfile.write("<html><head><title>Title goes here.</title></head>")
-    s.wfile.write("<body>")
+  # def do_HEAD(self):
+  #   self.send_response(200)
+  #   self.send_header("Content-type", "text/html")
+  #   self.end_headers()
+  def twitSearch(self):
+    self.send_response(200)
+    self.send_header("Content-type", "text/html")
+    self.end_headers()
+    self.wfile.write("<html><head><title>Title goes here.</title></head>")
+    self.wfile.write("<body>")
     # If someone went to "http://something.somewhere.net/foo/bar/",
-    # then s.path equals "/foo/bar/".
-    keywords = urlparse.parse_qs(urlparse.urlparse(s.path).query)['keywords']
+    # then self.path equals "/foo/bar/".
+    keywords = urlparse.parse_qs(urlparse.urlparse(self.path).query)['keywords']
     result = "\n".join(to_html(twit_search(keywords)))
-    print result
-    s.wfile.write(result)
-    s.wfile.write("</body></html>")
+    self.wfile.write(result)
+    self.wfile.write("</body></html>")
+  def favicon(self):
+    self.send_response(404)
+  def do_GET(self):
+    """Respond to a GET request."""
+    if self.path == "/favicon.ico":
+      self.favicon()
+    else:
+      self.twitSearch()
 
 if __name__ == '__main__':
   server_class = BaseHTTPServer.HTTPServer
