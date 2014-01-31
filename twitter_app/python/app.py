@@ -4,7 +4,7 @@ import urlparse
 from TwitterSearch import *
 
 def twit_search(keywords):
-  print "Testing123"
+  print "Testing123" + ",".join(keywords)
   try:
     tso = TwitterSearchOrder() # create a TwitterSearchOrder object
     tso.setKeywords(keywords) # let's define all words we would like to have a look for
@@ -25,6 +25,8 @@ def twit_search(keywords):
     tweets = []
     for tweet in ts.searchTweetsIterable(tso):
       tweets.append({"screen_name": tweet['user']['screen_name'], "tweet": tweet['text']})
+      print("hi")
+      break
 
     return tweets
 
@@ -60,7 +62,9 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     # If someone went to "http://something.somewhere.net/foo/bar/",
     # then s.path equals "/foo/bar/".
     keywords = urlparse.parse_qs(urlparse.urlparse(s.path).query)['keywords']
-    s.wfile.write("\n".join(to_html(twit_search(keywords))))
+    result = "\n".join(to_html(twit_search(keywords)))
+    print result
+    s.wfile.write(result)
     s.wfile.write("</body></html>")
 
 if __name__ == '__main__':
