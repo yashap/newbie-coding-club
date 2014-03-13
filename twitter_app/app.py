@@ -2,6 +2,7 @@ import time
 import BaseHTTPServer
 import urlparse
 import flask
+import os
 from TwitterSearch import *
 
 def twit_search(keywords):
@@ -42,7 +43,16 @@ def to_html(tweets):
 
 PORT_NUMBER = 8000
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_url_path = '/static')
+
+@app.route('/')
+def root():
+    return app.send_static_file('index.html')
+
+@app.route('/<path:dirname>/<path:filename>')
+def send_foo(dirname, filename):
+    print os.path.join('static',dirname)
+    return flask.send_from_directory(os.path.join('static',dirname), filename)
 
 @app.route("/testing")
 def hello():
