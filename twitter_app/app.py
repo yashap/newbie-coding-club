@@ -61,11 +61,11 @@ def send_foo(dirname, filename):
     print os.path.join('static',dirname)
     return flask.send_from_directory(os.path.join('static',dirname), filename)
 
-@app.route("/testing")
+@app.route("/twitsearch")
 def hello():
     keywords = flask.request.args.getlist('keywords')
     if keywords:
-      return "\n".join(to_html(twit_search(keywords)))
+      return to_json(twit_search(keywords))
     else:
       return "Give me keywords!"
 

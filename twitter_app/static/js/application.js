@@ -1,6 +1,6 @@
 $(function() {
 	$('.btn').on('click', function() {
-		$.getJSON('js/myTweets.json', '', function(myTweets) {
+		$.getJSON('twitsearch?keywords=obama', '', function(myTweets) {
 			$('#_tweets').find('._row1').html('');
 			for (var i in myTweets) {
 				if (i < 3) {
