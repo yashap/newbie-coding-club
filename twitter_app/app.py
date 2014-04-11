@@ -1,8 +1,9 @@
-import time
-import BaseHTTPServer
-import urlparse
+# import time
+# import BaseHTTPServer
+# import urlparse
 import flask
 import os
+import json
 from TwitterSearch import *
 
 def twit_search(keywords):
@@ -25,7 +26,10 @@ def twit_search(keywords):
     #    return '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] )
     tweets = []
     for tweet in ts.searchTweetsIterable(tso):
-      tweets.append({"screen_name": tweet['user']['screen_name'], "tweet": tweet['text']})
+      tweets.append({"screen_name": tweet['user']['screen_name'],
+        "text": tweet['text'],
+        "full_name": tweet['user']['name']
+        })
       if len(tweets) >= 5:
         break
 
@@ -38,8 +42,11 @@ def twit_search(keywords):
 def to_html(tweets):
   result = []
   for tweet in tweets:
-    result.append("<p class='tweet'>"+tweet["tweet"]+"</p>"+"<h3 class='screen_name'>"+tweet["screen_name"]+"</h3>")
+    result.append("<p class='tweet'>"+tweet["text"]+"</p>"+"<h3 class='screen_name'>"+tweet["screen_name"]+"</h3>")
   return result
+
+def to_json(tweets):
+  return json.dumps(tweets)
 
 PORT_NUMBER = 8000
 
