@@ -27,6 +27,10 @@ print(bobby.name)
 import random
 
 class Man(Person):
+	def __init__(self, name, height, weight):
+		Person.__init__(self, name, height, weight)
+		self.gender = 'Male'
+
 	def drunkTalk(self, stuff):
 		stuffA = list(stuff)
 		stuffB = []
