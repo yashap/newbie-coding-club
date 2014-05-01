@@ -25,10 +25,13 @@ def twit_search(keywords):
     # for tweet in ts.searchTweetsIterable(tso): # this is where the fun actually starts :)
     #    return '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] )
     tweets = []
+    base_url = "https://twitter.com"
     for tweet in ts.searchTweetsIterable(tso):
       tweets.append({"screen_name": tweet['user']['screen_name'],
         "text": tweet['text'],
-        "full_name": tweet['user']['name']
+        "full_name": tweet['user']['name'],
+        "url": "/".join([base_url, tweet['user']['screen_name'], "status", tweet['id_str']]),
+        "created_at": tweet['created_at']
         })
       if len(tweets) >= 5:
         break
