@@ -1,5 +1,4 @@
-$(function() {
-	$('.btn').on('click', function() {
+function search () {
 		var keyword = $("input[name='keyword']").val();
 		$.getJSON('twitsearch?keywords='+keyword, '', function(myTweets) {
 			var i, k, tweet, text;
@@ -36,8 +35,18 @@ $(function() {
 				}
 			}
 		});
+	}
+
+$(function() {
+	$('.btn').on('click', search);
+	$('#_search_text').keypress(function(event){
+		if (event.which === 13)
+			search();
 	});
 });
+
+
+
 
 
 
