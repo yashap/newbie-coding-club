@@ -20,7 +20,7 @@ function search () {
 			}
 			$('#_tweets').find('._row2').html('');
 			for (i in myTweets) {
-				if (i < 3) {
+				if (i >= 3) {
 					tweet = myTweets[i];
 					text = '<div class="col-md-4">' +
 						'<p>$full_name @$screen_name</p>' +

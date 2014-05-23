@@ -33,7 +33,7 @@ def twit_search(keywords):
         "url": "/".join([base_url, tweet['user']['screen_name'], "status", tweet['id_str']]),
         "created_at": tweet['created_at']
         })
-      if len(tweets) >= 5:
+      if len(tweets) >= 6:
         break
 
     return tweets
