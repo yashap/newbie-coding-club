@@ -7,11 +7,11 @@ function search () {
 				where.html('');
 				for (i=n*3;i < (n+1)*3; ++i) {
 					tweet = myTweets[i];
+					tweet.time_since = Math.round((new Date() - new Date(tweet.created_at))/60000);
 					text = '<div class="col-md-4">' +
 						'<p>$full_name @$screen_name</p>' +
 						'<p>$text</p>' +
-						'<p>$url</p>' +
-						'<p>$created_at</p>' +
+						'<a href="$url">$time_since minutes ago</a>' +
 						'</div>';
 					for (k in tweet) {
 						text = text.replace("$"+k, tweet[k]);
