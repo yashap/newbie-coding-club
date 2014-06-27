@@ -2,6 +2,10 @@ function search () {
 		var keyword = $("input[name='keyword']").val();
 		$.getJSON('twitsearch?keywords='+keyword, '', function(myTweets) {
 			var i, k, tweet, text, where, n;
+			if (myTweets.length === 0) {
+				$('#_tweets').html("<p>Your search did not return any tweets.</p><p>Try something less weird.</p>");
+				return;
+			}
 			for (n=0;n <= 1; ++n) {
 				where = $('#_tweets').find('._row'+(n+1));
 				where.html('');
