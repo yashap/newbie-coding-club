@@ -31,9 +31,12 @@ def twit_search(keywords):
     for i in xrange(2):
       print(i)
       try:
+        print("i try")
         tweet = twit_iter.next()
-      except e:
-        print e
+        print("i try better")
+      except Exception as e:
+        print("i fail")
+        print(e)
       print(tweet)
       tweets.append({"screen_name": tweet['user']['screen_name'],
         "text": tweet['text'],
