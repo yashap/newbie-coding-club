@@ -1,1 +1,6 @@
 This is a repo where we'll store all of the code from Newbie Coding club, both demos and the main site.
+
+## Misc
+
+* twitter_app project uses `sentiment_analysis` and is embedding its AFINN-111.
+    * <https://github.com/abromberg/sentiment_analysis>

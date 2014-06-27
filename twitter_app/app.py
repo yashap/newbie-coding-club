@@ -4,6 +4,7 @@
 import flask
 import os
 import json
+import sentiment
 from TwitterSearch import *
 
 def twit_search(keywords):
