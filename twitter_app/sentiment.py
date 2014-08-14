@@ -15,9 +15,17 @@ def tweet_to_array(tweet):
 		final.append(word.lower())
 	return final
 
-test = load("AFINN-111.txt")
-tweet = "Greeting world my name is crap"
-tweet_array = tweet_to_array(tweet)
+def tweet_score(words, score_dict):
+	score = 0
+	for word in words:
+		score += score_dict.get(word,0)
+	return score
 
-for word in tweet_array:
-	print("%s %s" % (word, test.get(word)))
+def main():
+	test = load("AFINN-111.txt")
+	tweet = "Greeting great great world my name is crap"
+	tweet_array = tweet_to_array(tweet)
+	print tweet_score(tweet_array, test)
+
+if __name__ == "__main__":
+	main()
