@@ -1,14 +1,3 @@
-# class Fraction:
-#   def __init__(self, num, denom):
-#     self.num = num
-#     self.denom = denom
-
-#   def __mul__(self, other):
-#     return Fraction(self.num*other.num, self.denom*other.denom)
-
-#   def __str__(self):
-#     return "%s/%s" % (self.num, self.denom)
-
 class Fraction:
   def __init__(self, num, denom):
     def gcd():
@@ -31,4 +20,5 @@ class Fraction:
   def __str__(self):
     return "%s/%s" % (self.num, self.denom)
 
-print Fraction(2,Fraction(1, 6))
+# Next step: try to make this work!
+# print Fraction(2,Fraction(1, 6))
