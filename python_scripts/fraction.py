@@ -1,7 +1,14 @@
 class Fraction:
   def __init__(self, num, denom=1):
-    assert (type(num) is int and num != 0) or num.__class__.__name__ == "Fraction", "Wrong type for numerator"
-    assert (type(denom) is int and denom != 0) or denom.__class__.__name__ == "Fraction", "Wrong type for denominator"
+    assert (type(num) is int and num != 0) or num.__class__.__name__ == "Fraction", "Bad input for numerator"
+    assert (type(denom) is int and denom != 0) or denom.__class__.__name__ == "Fraction", "Bad input for denominator"
+
+    def get_gcd():
+      x = 1
+      for n in range(1, min(num, denom)+1):
+        if num % n == 0 and denom % n == 0:
+          x = n
+      return x
 
     if type(num) is int and type(denom) is int:
       pass
@@ -14,18 +21,11 @@ class Fraction:
     else:
       num, denom = num.num * denom.denom, num.denom * denom.num
 
-    def get_gcd():
-      # Let's handle negative values here
-      # Also, right now it won't reduce negative values!
-      # because range(1,-10) == []
-      x = 1
-      for n in range(1, min(num, denom)+1):
-        if num % n == 0 and denom % n == 0:
-          x = n
-      return x
+    sign = -1 if num * denom < 0 else 1
+    num, denom = abs(num), abs(denom)
 
     gcd = get_gcd()
-    self.num = num/gcd
+    self.num = sign * num/gcd
     self.denom = denom/gcd
 
   def __mul__(self, other):
@@ -46,16 +46,33 @@ class Fraction:
   def __eq__(self, other):
     return self.num == other.num and self.denom == other.denom
 
+  def __lt__(self, other):
+    return self.num * other.denom < other.num * self.denom
+
+  def __gt__(self, other):
+    return self.num * other.denom > other.num * self.denom
+
+  def __le__(self, other):
+    return self < other or self == other
+
+  def __ge__(self, other):
+    return self > other or self == other
+
   def __str__(self):
     return "%s/%s" % (self.num, self.denom)
 
   def __repr__(self):
     return "Fraction(%s, %s)" % (self.num, self.denom)
 
-# Next step: try to make this work!
-# print Fraction(2,Fraction(1, 6))
-# print Fraction(2,Fraction(1, 6))
-
+print Fraction(2,3)
+print Fraction(2,Fraction(1, 6))
 print Fraction(Fraction(1,2),Fraction(3,Fraction(7,Fraction(20))))
 print Fraction(1,2) - Fraction(1,8)
-print Fraction(1,-2)  # This doesn't behave how we want yet
+print Fraction(1,-2)
+print Fraction(-1,-2)
+assert (Fraction(3,4) < Fraction(7,9)) == True
+assert (Fraction(3,4) > Fraction(7,9)) == False
+assert (Fraction(3,4) <= Fraction(7,9)) == True
+assert (Fraction(3,4) >= Fraction(7,9)) == False
+assert (Fraction(3,4) <= Fraction(6,8)) == True
+assert (Fraction(3,4) >= Fraction(6,8)) == True
